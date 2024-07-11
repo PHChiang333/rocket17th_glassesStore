@@ -1,0 +1,367 @@
+@import "_reset";
+@import "_UI-Kit";
+@import "_utilities";
+
+// colors
+$lavenderBlush: #FBF2F2;
+$black: #000000;
+$red: #AA0601;
+$white: #FFFFFF;
+
+@mixin pad {
+    @media (max-width:768px) {
+        @content
+    }
+}
+
+@mixin phone {
+    @media (max-width:375px) {
+        @content
+    }
+}
+
+
+// global 
+
+*,
+* {
+    box-sizing: border-box;
+    // outline: 1px solid yellow;
+}
+
+body {
+    font-family: "Roboto", "Noto Sans TC", serif;
+    line-height: 1.5;
+}
+
+// common
+a {
+    text-decoration: none;
+    display: inline-block;
+    color: $white;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+
+// header
+
+.header {
+    width: 100%;
+    background-color: $red;
+    background-size: cover;
+    color: white;
+
+    .header-wrap {
+        max-width: 1296px;
+        margin: 0 auto;
+        padding: 0 36px;
+        align-items: center;
+
+        @include pad {
+            max-width: 696px;
+        }
+
+        @include phone {
+            width: 100%;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-boxLogo {
+            width: 80px;
+            min-width: 60px;
+            display: block;
+
+            @include phone {
+                margin: 16px auto 16px 14px;
+            }
+        }
+
+        .header-boxMenu {
+            font-size: 20px;
+            margin-right: -32px;
+
+            @include phone {
+                display: flex;
+                flex-wrap: wrap;
+                margin: 0;
+                width: 100%;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+
+                @include phone {
+                    flex-wrap: wrap;
+                    width: 100%;
+                }
+
+                .menu-item {
+                    margin: 25px 32px;
+
+                    @include phone {
+                        width: 50%;
+                        margin: 0;
+                        padding: 12px 0 12px 0;
+                        text-align: center;
+                        border: 1px solid $white;
+                    }
+                }
+            }
+
+        }
+    }
+
+
+}
+
+
+// main
+.main {
+    width: 100%;
+    background-color: $white;
+    background-size: cover;
+    color: $black;
+    font-size: 16px;
+
+    .main-wrap {
+        max-width: 1296px;
+        margin: 0 auto;
+        padding: 0 36px;
+        padding-top: 80px;
+        padding-bottom: 56px;
+
+        @include pad {
+            max-width: 696px;
+        }
+
+        @include phone {
+            max-width: 348px;
+            margin: 0 14px 24px 14px;
+            padding: 16px 0;
+        }
+
+        .sectionTitle {
+            border-left: 8px solid $red;
+            margin: 16px 0 16px -4px;
+
+            @include phone() {
+                margin: 24px 0;
+            }
+
+            h1 {
+                font-size: 48px;
+                margin-left: 16px;
+
+                @include phone() {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        .sectionSubtitle {
+            font-size: 24px;
+            margin-top: 16px;
+            margin-bottom: 16px;
+
+            @include phone() {
+                margin: 24px 0;
+            }
+        }
+
+        .content {
+            .content-title {
+                margin-top: 8px;
+                margin-bottom: 8px;
+            }
+
+            .content-statement {
+                margin-bottom: 24px;
+            }
+        }
+    }
+
+}
+
+
+//footer
+
+.footer {
+    width: 100%;
+    background-color: $red;
+    background-size: cover;
+    color: white;
+    font-size: 16px;
+
+    .footer-warp {
+        max-width: 1296px;
+        margin: 0 auto;
+        padding: 0 36px;
+        padding-top: 48px;
+
+        @include pad {
+            max-width: 696px;
+        }
+
+        @include phone {
+            max-width: 348px;
+            margin: 0 14px 0 14px;
+            position: relative;
+            padding: 0;
+            padding-top: 24px;
+        }
+
+        .nav {
+            align-items: center;
+
+            @include pad() {
+                flex-wrap: wrap;
+            }
+
+            @include phone() {
+                margin-bottom: 0;
+            }
+
+            .nav-menu {
+                margin-left: -24px;
+
+                @include phone() {
+                    margin-left: 0;
+                    display: none;
+                }
+            }
+
+
+
+            .d-flex .nav-menu-item {
+                margin: 0 24px;
+            }
+
+            .icon-list {
+                margin-right: -16px;
+
+                @include phone() {
+                    margin-left: 0;
+                }
+
+                @include phone() {
+                    margin-left: auto;
+                    margin-right: 0;
+                    position: absolute;
+                    z-index: 10;
+                    right: 0;
+                    top: 24px
+                }
+
+                .icon {
+                    margin: 0 16px;
+                    width: 48px;
+
+                    @include pad {
+                        width: 40px;
+                    }
+
+                    @include phone() {
+                        width: 24px;
+                        margin: 0 0 0 8px;
+
+
+                    }
+
+                    a {
+                        display: block;
+                    }
+
+                    ;
+                }
+            }
+        }
+
+        .contactInfo {
+            align-items: center;
+            word-break: break-all;
+
+            @include phone() {
+                margin-bottom: 0;
+                align-items: normal;
+            }
+
+            .contact-img {
+                margin-right: 16px;
+                width: 48px;
+
+                @include phone() {
+                    width: 24px;
+                    margin-right: 8px;
+                }
+
+                .material-symbols-outlined {
+                    font-size: 36px;
+                    display: block;
+
+                    @include phone() {
+                        font-size: 24px;
+                    }
+                }
+            }
+
+            .contact-content {
+                font-size: 36px;
+                margin-bottom: 8px;
+
+                @include phone() {
+                    font-size: 16px;
+                }
+            }
+
+        }
+
+        .copyright {
+            padding: 32px 0;
+            margin-top: 24px;
+            border-top: 1px solid $white ;
+
+            @include phone() {
+                flex-direction: column;
+                margin-top: 16px;
+                padding-top: 16px;
+                padding-bottom: 16px;
+            }
+
+            .copyright-content {
+                @include phone() {
+                    margin-bottom: 8px;
+                }
+
+
+            }
+
+            .copyright-menu {
+                margin-right: -24px;
+
+                @include phone() {
+                    flex-direction: column;
+                    margin-right: auto;
+                    margin-left: 0;
+
+                }
+
+                .copyright-menu-item {
+                    margin: 0 24px;
+                    font-size: 14px;
+
+                    @include phone() {
+                        margin: 0 0 8px 0;
+                    }
+                }
+
+            }
+        }
+
+    }
+}
